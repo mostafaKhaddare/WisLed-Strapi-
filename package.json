@@ -14,12 +14,14 @@
     "@strapi/plugin-cloud": "5.0.1",
     "@strapi/plugin-users-permissions": "5.0.1",
     "@strapi/provider-upload-aws-s3": "^5.0.1",
+    "@strapi/provider-upload-local": "^5.28.0",
     "@strapi/strapi": "5.0.1",
     "better-sqlite3": "9.4.3",
     "pg": "^8.13.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-plugin-media-upload": "^1.1.2",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {

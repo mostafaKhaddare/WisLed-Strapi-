@@ -5,13 +5,13 @@ export interface HomepageHeroBanner extends Struct.ComponentSchema {
   info: {
     displayName: 'HeroBanner';
     icon: '';
+    description: '';
   };
   attributes: {
     Headline: Schema.Attribute.String & Schema.Attribute.Required;
     Text: Schema.Attribute.Text;
     CTA: Schema.Attribute.Component<'homepage.cta', false>;
-    Image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images' | 'files', true>;
   };
 }
 
