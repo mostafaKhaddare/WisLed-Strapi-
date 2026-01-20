@@ -5,4 +5,10 @@ export default ({ env }) => ({
       breakpoints: true,
     },
   },
+  // ADD THIS SECTION BELOW:
+  "users-permissions": {
+    config: {
+      jwtSecret: env("JWT_SECRET"),
+    },
+  },
 });
