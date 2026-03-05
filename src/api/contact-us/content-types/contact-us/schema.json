@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_uses",
+  "info": {
+    "singularName": "contact-us",
+    "pluralName": "contact-uses",
+    "displayName": "Contact Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Header": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.h-eader"
+    },
+    "ContactMethods": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.contact-grid"
+    },
+    "FormIntro": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.cta"
+    }
+  }
+}

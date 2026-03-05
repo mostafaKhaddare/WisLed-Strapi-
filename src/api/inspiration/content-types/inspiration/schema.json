@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inspirations",
+  "info": {
+    "singularName": "inspiration",
+    "pluralName": "inspirations",
+    "displayName": "Inspiration",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "room_type": {
+      "type": "enumeration",
+      "enum": [
+        "CUISINE MODERNE",
+        "HÔTEL LUXE",
+        "JARDIN & EXTÉRIEUR",
+        "SALLE DE SPORT",
+        "ENTREPÔT INDUSTRIEL",
+        "SALLE DE BAIN",
+        "SHOWROOM",
+        "PISCINE"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "hotspots": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.hotspot"
+    }
+  }
+}

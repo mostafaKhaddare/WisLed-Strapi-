@@ -651,6 +651,35 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
+  collectionName: 'contact_uses';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'contact-uses';
+    displayName: 'Contact Us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Header: Schema.Attribute.Component<'sections.h-eader', true>;
+    ContactMethods: Schema.Attribute.Component<'sections.contact-grid', true>;
+    FormIntro: Schema.Attribute.Component<'homepage.cta', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us.contact-us'
+    >;
+  };
+}
+
 export interface ApiFaqFaq extends Struct.SingleTypeSchema {
   collectionName: 'faqs';
   info: {
@@ -701,6 +730,51 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homepage.homepage'
+    >;
+  };
+}
+
+export interface ApiInspirationInspiration extends Struct.CollectionTypeSchema {
+  collectionName: 'inspirations';
+  info: {
+    singularName: 'inspiration';
+    pluralName: 'inspirations';
+    displayName: 'Inspiration';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    room_type: Schema.Attribute.Enumeration<
+      [
+        'CUISINE MODERNE',
+        'H\u00D4TEL LUXE',
+        'JARDIN & EXT\u00C9RIEUR',
+        'SALLE DE SPORT',
+        'ENTREP\u00D4T INDUSTRIEL',
+        'SALLE DE BAIN',
+        'SHOWROOM',
+        'PISCINE',
+      ]
+    >;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    hotspots: Schema.Attribute.Component<'sections.hotspot', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inspiration.inspiration'
     >;
   };
 }
@@ -1174,8 +1248,10 @@ declare module '@strapi/strapi' {
       'api::blog-post-category.blog-post-category': ApiBlogPostCategoryBlogPostCategory;
       'api::category.category': ApiCategoryCategory;
       'api::collection.collection': ApiCollectionCollection;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::faq.faq': ApiFaqFaq;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::inspiration.inspiration': ApiInspirationInspiration;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product-variant-color.product-variant-color': ApiProductVariantColorProductVariantColor;
       'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;

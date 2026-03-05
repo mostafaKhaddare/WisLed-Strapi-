@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_hotspots",
+  "info": {
+    "displayName": "Hotspot"
+  },
+  "options": {},
+  "attributes": {
+    "product_handle": {
+      "type": "string",
+      "required": true
+    },
+    "position_x": {
+      "type": "integer"
+    },
+    "position_y": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_contact_grids",
+  "info": {
+    "displayName": "Contact Grid"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "ContactMethods": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact.contact-card"
+    }
+  }
+}
