@@ -129,3 +129,6 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+# Strapi -> Payload migration artifacts (regenerate with node export-strapi-content.cjs)
+migration-out
