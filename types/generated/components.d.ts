@@ -1,5 +1,31 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface HomepageHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_hero_banners';
+  info: {
+    displayName: 'HeroBanner';
+    icon: '';
+    description: '';
+  };
+  attributes: {
+    Headline: Schema.Attribute.String & Schema.Attribute.Required;
+    Text: Schema.Attribute.Text;
+    CTA: Schema.Attribute.Component<'homepage.cta', false>;
+    Image: Schema.Attribute.Media<'images' | 'files', true>;
+  };
+}
+
+export interface HomepageCta extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_ctas';
+  info: {
+    displayName: 'CTA';
+  };
+  attributes: {
+    BtnText: Schema.Attribute.String;
+    BtnLink: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsHotspot extends Struct.ComponentSchema {
   collectionName: 'components_sections_hotspots';
   info: {
@@ -36,32 +62,6 @@ export interface SectionsContactGrid extends Struct.ComponentSchema {
   attributes: {
     Title: Schema.Attribute.String;
     ContactMethods: Schema.Attribute.Component<'contact.contact-card', true>;
-  };
-}
-
-export interface HomepageHeroBanner extends Struct.ComponentSchema {
-  collectionName: 'components_homepage_hero_banners';
-  info: {
-    displayName: 'HeroBanner';
-    icon: '';
-    description: '';
-  };
-  attributes: {
-    Headline: Schema.Attribute.String & Schema.Attribute.Required;
-    Text: Schema.Attribute.Text;
-    CTA: Schema.Attribute.Component<'homepage.cta', false>;
-    Image: Schema.Attribute.Media<'images' | 'files', true>;
-  };
-}
-
-export interface HomepageCta extends Struct.ComponentSchema {
-  collectionName: 'components_homepage_ctas';
-  info: {
-    displayName: 'CTA';
-  };
-  attributes: {
-    BtnText: Schema.Attribute.String;
-    BtnLink: Schema.Attribute.String;
   };
 }
 
@@ -178,11 +178,11 @@ export interface AboutUsContentSection extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'homepage.hero-banner': HomepageHeroBanner;
+      'homepage.cta': HomepageCta;
       'sections.hotspot': SectionsHotspot;
       'sections.h-eader': SectionsHEader;
       'sections.contact-grid': SectionsContactGrid;
-      'homepage.hero-banner': HomepageHeroBanner;
-      'homepage.cta': HomepageCta;
       'faq.faq': FaqFaq;
       'faq.faq-question': FaqFaqQuestion;
       'contact.contact-card': ContactContactCard;
